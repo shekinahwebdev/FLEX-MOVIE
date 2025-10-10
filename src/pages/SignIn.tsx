@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import AuthFooter from "../ui/AuthFooter";
 
-const SignUp = () => {
+const SignIn = () => {
   return (
     <main className="bg-[url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
       <div className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20">
@@ -14,7 +14,7 @@ const SignUp = () => {
       <div className="px-5 py-10 md:px-12 lg:px-20">
         <div className="bg-white/20 backdrop-blur-sm p-7 sm:p-8 md:p-10 xl:p-16 rounded-md w-full max-w-[420px] md:max-w-[450px] lg:max-w-[500px] text-white  form-bg">
           <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mb-6 text-center">
-            Sign Up
+            Sign In
           </h2>
 
           <form className="flex flex-col gap-5">
@@ -30,44 +30,10 @@ const SignUp = () => {
                 required
               />
             </div>
-            <div className="flex flex-col">
-              <label htmlFor="username" className="mb-1 text-sm">
-                Username
-              </label>
-              <input
-                type="text"
-                id="text"
-                value="shekinah"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
-                required
-              />
-            </div>
-            <div className="flex flex-col relative">
-              <label htmlFor="password" className="mb-1 text-sm">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value="**********"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
-                required
-              />
-              <button
-                type="button"
-                className="absolute right-1 top-[27px] flex items-center justify-center w-10 h-10 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
-              >
-                <img
-                  src="/assets/open.png"
-                  alt="toggle password visibility"
-                  className="w-6 h-6"
-                />
-              </button>
-            </div>
 
             <div className="flex flex-col relative">
               <label htmlFor="password" className="mb-1 text-sm">
-                Confirm Password
+                Password
               </label>
               <input
                 type="password"
@@ -92,7 +58,7 @@ const SignUp = () => {
               type="submit"
               className="mt-4 bg-red-600 hover:bg-red-700 transition-all p-3 rounded text-lg font-semibold cursor-pointer"
             >
-              Sign Up
+              Sign In
             </button>
           </form>
 
@@ -117,12 +83,12 @@ const SignUp = () => {
 
           <div className="px-4 mt-12">
             <span className="text-[rgb(101,99,99)]">
-              Have an account in Netflix?
+              New to Netflix?
               <Link
-                to="/"
+                to="/signup"
                 className="text-white ml-2 font-bold text-[18px] hover:text-red-500 transition-colors duration-300 cursor-pointer"
               >
-                Sign in now
+                Sign up now
               </Link>
             </span>
             <p className="text-[rgb(101,99,99)] mt-9">
@@ -140,4 +106,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
