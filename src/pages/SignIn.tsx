@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import AuthFooter from "../ui/AuthFooter";
+import PasswordInput from "../ui/PasswordInput";
 
 const SignIn = () => {
   return (
@@ -25,35 +26,12 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
-                value="patricia@gmail.com"
+                placeholder="Enter your email"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
             </div>
-
-            <div className="flex flex-col relative">
-              <label htmlFor="password" className="mb-1 text-sm">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value="**********"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
-                required
-              />
-              <button
-                type="button"
-                className="absolute right-1 top-[27px] flex items-center justify-center w-10 h-10 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
-              >
-                <img
-                  src="/assets/open.png"
-                  alt="toggle password visibility"
-                  className="w-6 h-6"
-                />
-              </button>
-            </div>
-
+            <PasswordInput />
             <button
               type="submit"
               className="mt-4 bg-red-600 hover:bg-red-700 transition-all p-3 rounded text-lg font-semibold cursor-pointer"

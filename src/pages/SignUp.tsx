@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 import AuthFooter from "../ui/AuthFooter";
+import PasswordInput from "../ui/PasswordInput";
+import ConfirmPassword from "../ui/ConfirmPassword";
 
 const SignUp = () => {
   return (
@@ -11,7 +13,7 @@ const SignUp = () => {
           className="w-[150px] md:w-[250px]"
         />
       </div>
-      <div className="px-5 py-10 md:px-12 lg:px-20">
+      <div className="px-5 md:px-12 lg:px-20">
         <div className="bg-white/20 backdrop-blur-sm p-7 sm:p-8 md:p-10 xl:p-16 rounded-md w-full max-w-[420px] md:max-w-[450px] lg:max-w-[500px] text-white  form-bg">
           <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mb-6 text-center">
             Sign Up
@@ -25,7 +27,7 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
-                value="patricia@gmail.com"
+                placeholder="Enter your email"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
@@ -37,57 +39,13 @@ const SignUp = () => {
               <input
                 type="text"
                 id="text"
-                value="shekinah"
+                placeholder="Enter your username"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
             </div>
-            <div className="flex flex-col relative">
-              <label htmlFor="password" className="mb-1 text-sm">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value="**********"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
-                required
-              />
-              <button
-                type="button"
-                className="absolute right-1 top-[27px] flex items-center justify-center w-10 h-10 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
-              >
-                <img
-                  src="/assets/open.png"
-                  alt="toggle password visibility"
-                  className="w-6 h-6"
-                />
-              </button>
-            </div>
-
-            <div className="flex flex-col relative">
-              <label htmlFor="password" className="mb-1 text-sm">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value="**********"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
-                required
-              />
-              <button
-                type="button"
-                className="absolute right-1 top-[27px] flex items-center justify-center w-10 h-10 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
-              >
-                <img
-                  src="/assets/open.png"
-                  alt="toggle password visibility"
-                  className="w-6 h-6"
-                />
-              </button>
-            </div>
-
+            <PasswordInput />
+            <ConfirmPassword />
             <button
               type="submit"
               className="mt-4 bg-red-600 hover:bg-red-700 transition-all p-3 rounded text-lg font-semibold cursor-pointer"
