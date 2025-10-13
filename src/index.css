@@ -9,6 +9,12 @@ body {
   min-height: 100vh;
 }
 
+@layer components {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
 .signup-bg {
   background-color: rgb(0, 0, 0, 1);
 }
