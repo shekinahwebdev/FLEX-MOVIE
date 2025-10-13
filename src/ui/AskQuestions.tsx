@@ -21,7 +21,7 @@ const AskQuestions = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center  px-24 py-16 border-b-8 border-white/40 gap-5">
+    <section className="flex flex-col items-center justify-center  px-14 py-16 border-b-8 border-white/40 gap-5">
       <h1 className="text-2xl md:text-4xl font-extrabold">
         Frequently Asked Questions
       </h1>

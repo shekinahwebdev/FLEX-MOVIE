@@ -37,7 +37,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="text-center px-9 flex flex-col gap-3 xl:px-10 justify-center items-center mt-56 w-full max-w-[1000px]">
+        <div className="text-center px-9 flex flex-col gap-3 xl:px-10 justify-center items-center mt-40 w-full max-w-[1000px]">
           <p className="xl:text-7xl font-extrabold text-4xl">
             Unlimited movies, TV shows, and more
           </p>
