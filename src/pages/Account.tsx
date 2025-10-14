@@ -2,9 +2,9 @@ import Header from "../layout/Header";
 
 const Account = () => {
   return (
-    <section>
+    <section className="flex flex-col">
       <Header />
-      <div className="w-full border-2 flex flex-col items-start px-5 py-0 md:px-12 lg:px-20">
+      <div className="w-full flex flex-col items-start px-5 py-0 md:px-12 lg:px-20">
         <div className="">
           <img
             src="/assets/Bheem For Ramaraju - Ramaraju Intro - RRR(Telugu) _ NTR, Ram Charan, Ajay Devgn _ SS Rajamouli (1) 1.png"
@@ -31,13 +31,13 @@ const Account = () => {
             More info
           </button>
         </div>
-        <div className="flex items-center gap-3 self-end">
+        <div className="flex items-center gap-3 self-end mt-10">
           <img
             src="/assets/Reset.png"
             alt=""
-            className="border-2 rounded-full"
+            className="border-2 rounded-full w-14 h-14 md:w-20 md:h-20"
           />
-          <div className="bg-white w-5 h-12"></div>
+          <div className="bg-white w-5 h-12 md:h-20"></div>
           <p>U/A 13+</p>
         </div>
       </div>
