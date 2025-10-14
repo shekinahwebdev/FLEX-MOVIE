@@ -50,3 +50,12 @@ export const profileIcons = [
   { name: "Ben", src: "/assets/image15.png", edit: "/assets/image18.png" },
   { name: "Junior", src: "/assets/image12.png", edit: "/assets/image18.png" },
 ];
+
+export const headerLinks = [
+  { name: "Home", to: "/" },
+  { name: "TV Shows", to: "/tv-shows" },
+  { name: "Movies", to: "/movies" },
+  { name: "New & Popular", to: "/new-popular" },
+  { name: "My List", to: "/my-list" },
+  { name: "Browse by Languages", to: "/browse-by-languages" },
+];

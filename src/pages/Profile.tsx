@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { profileIcons } from "../lib/constant";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
   const [isEditted, setIsEditted] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <aside className="flex flex-col items-center bg-[rgb(18,18,18)] min-h-[100vh] relative">
@@ -12,11 +14,14 @@ const Profile = () => {
           isEditted ? " bg-[rgb(0,0,0,0.6)] z-20" : "hidden"
         }`}
       ></div>
-      <div className="self-start flex  w-full mb-10 px-5 py-10 md:px-12 lg:px-20 z-30 relative">
+      <div
+        className="self-start flex  w-full mb-10 px-5 py-10 md:px-12 lg:px-20 z-30 relative"
+        onClick={() => navigate("/account")}
+      >
         <img
           src="/assets/logo.png"
           alt="logo"
-          className="w-[120px] xl:w-[150px] drop-shadow-2xl "
+          className="w-[120px] xl:w-[150px] drop-shadow-2xl"
         />
       </div>
       <div className="flex flex-col items-center justify-center px-8 mt-40 relative z-30">

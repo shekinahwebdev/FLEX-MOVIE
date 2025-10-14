@@ -1,0 +1,48 @@
+import Header from "../layout/Header";
+
+const Account = () => {
+  return (
+    <section>
+      <Header />
+      <div className="w-full border-2 flex flex-col items-start px-5 py-0 md:px-12 lg:px-20">
+        <div className="">
+          <img
+            src="/assets/Bheem For Ramaraju - Ramaraju Intro - RRR(Telugu) _ NTR, Ram Charan, Ajay Devgn _ SS Rajamouli (1) 1.png"
+            alt=""
+            className="p-0"
+          />
+        </div>
+        <p className="w-full max-w-[700px] xl:max-w-[500px] py-4">
+          RRR is a fictional story about two Indian revolutionaries who fought
+          against British colonialists in the 1920s. The film is set in the
+          1920s and spoken in the Telugu language.
+        </p>
+        <div className="flex flex-row items-center gap-3 my-5">
+          <div className="bg-red-600 w-24 px-6 py-2 rounded flex">Top10</div>
+          <p>#1 in Movie Today</p>
+        </div>
+        <div className="flex flex-row gap-5">
+          <button className="bg-white flex items-center px-7 text-black gap-3 py-3">
+            <img src="/assets/play.png" alt="" className="w-5 h-5" />
+            Play
+          </button>
+          <button className="bg-white/30 flex items-center px-7 text-white gap-3 py-3">
+            <img src="/assets/info_icon.png" alt="" className="w-6 h-6" />
+            More info
+          </button>
+        </div>
+        <div className="flex items-center gap-3 self-end">
+          <img
+            src="/assets/Reset.png"
+            alt=""
+            className="border-2 rounded-full"
+          />
+          <div className="bg-white w-5 h-12"></div>
+          <p>U/A 13+</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Account;
