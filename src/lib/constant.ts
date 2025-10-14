@@ -41,3 +41,12 @@ export const watchedImages = [
   "/assets/cards/card9.jpg",
   "/assets/cards/card10.jpg",
 ];
+
+export const profileIcons = [
+  { name: "Shekinah", src: "/assets/image12.png", edit: "/assets/image18.png" },
+  { name: "Prince", src: "/assets/image11.png", edit: "/assets/image18.png" },
+  { name: "Dave", src: "/assets/image13.png", edit: "/assets/image18.png" },
+  { name: "Gideon", src: "/assets/image14.png", edit: "/assets/image18.png" },
+  { name: "Ben", src: "/assets/image15.png", edit: "/assets/image18.png" },
+  { name: "Junior", src: "/assets/image12.png", edit: "/assets/image18.png" },
+];

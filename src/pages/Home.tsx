@@ -66,7 +66,10 @@ const Home = () => {
               Email address
             </label>
           </div>
-          <button className="bg-red-600 px-10 py-3 font-bold">
+          <button
+            className="bg-red-600 px-10 py-3 font-bold"
+            onClick={() => navigate("/profile")}
+          >
             Get Started
           </button>
         </div>
