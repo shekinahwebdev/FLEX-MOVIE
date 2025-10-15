@@ -1,10 +1,11 @@
 import Header from "../layout/Header";
+import MainMovie from "./MainMovie";
 
 const Account = () => {
   return (
     <section className="flex flex-col">
       <Header />
-      <div className="w-full flex flex-col items-start px-5 py-0 md:px-12 lg:px-20">
+      <div className="w-full flex flex-col items-start px-5 pb-10 md:pb-20 md:px-12 lg:px-20">
         <div className="">
           <img
             src="/assets/Bheem For Ramaraju - Ramaraju Intro - RRR(Telugu) _ NTR, Ram Charan, Ajay Devgn _ SS Rajamouli (1) 1.png"
@@ -41,6 +42,7 @@ const Account = () => {
           <p>U/A 13+</p>
         </div>
       </div>
+      <MainMovie />
     </section>
   );
 };

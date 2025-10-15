@@ -30,9 +30,9 @@ const Home = () => {
             />
             <button
               className="bg-red-600 px-4 py-2 md:px-6  hover:bg-red-700"
-              onClick={() => navigate("/signin")}
+              onClick={() => navigate("/signup")}
             >
-              Sign in
+              Sign up
             </button>
           </div>
         </div>

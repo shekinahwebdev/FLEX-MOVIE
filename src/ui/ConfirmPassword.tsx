@@ -1,6 +1,29 @@
 import { useState } from "react";
+interface ConfirmPasswordProps {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  touched: {
+    email: boolean;
+    username: boolean;
+    password: boolean;
+    confirm: boolean;
+  };
+  errorMsg: {
+    email: string;
+    username?: string;
+    password: string;
+    confirm?: string;
+  };
+}
 
-const ConfirmPassword = () => {
+const ConfirmPassword = ({
+  onChange,
+  value,
+  errorMsg,
+  onBlur,
+  touched,
+}: ConfirmPasswordProps) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex flex-col relative">
@@ -10,10 +33,17 @@ const ConfirmPassword = () => {
       <input
         type={showPassword ? "text" : "password"}
         placeholder="Confirm password"
+        name="confirm"
+        value={value}
+        onBlur={onBlur}
+        onChange={onChange}
         id="password"
         className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
         required
       />
+      {touched.confirm && errorMsg.confirm && (
+        <p className="text-red-500 text-sm mt-1">{errorMsg.confirm}</p>
+      )}
       <button
         type="button"
         onClick={() => setShowPassword(!showPassword)}

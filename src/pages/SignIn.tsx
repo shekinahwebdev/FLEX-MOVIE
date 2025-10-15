@@ -1,8 +1,27 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import AuthFooter from "../ui/AuthFooter";
 import PasswordInput from "../ui/PasswordInput";
+import { useDispatch } from "react-redux";
+import { useAuthForm } from "../hooks/useAuthForm";
+import { signIn } from "../components/auth/authSlice";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { formData, error, touched, handleChange, handleBlur, isFormValid } =
+    useAuthForm(true);
+
+  const handleSignIn = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isFormValid) return;
+
+    const newUser = {
+      id: Date.now(),
+      ...formData,
+    };
+    dispatch(signIn(newUser));
+    navigate("/profile");
+  };
   return (
     <main className="bg-[url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
       <div className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20">
@@ -18,7 +37,7 @@ const SignIn = () => {
             Sign In
           </h2>
 
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5" onSubmit={handleSignIn}>
             <div className="flex flex-col">
               <label htmlFor="email" className="mb-1 text-sm">
                 Email
@@ -26,15 +45,33 @@ const SignIn = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onBlur={handleBlur}
+                onChange={handleChange}
                 placeholder="Enter your email"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
+              {touched.email && error.email && (
+                <p className="text-red-500 text-sm mt-1">{error.email}</p>
+              )}
             </div>
-            <PasswordInput />
+            <PasswordInput
+              value={formData.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              touched={touched}
+              errorMsg={error}
+            />
             <button
               type="submit"
-              className="mt-4 bg-red-600 hover:bg-red-700 transition-all p-3 rounded text-lg font-semibold cursor-pointer"
+              disabled={!isFormValid}
+              className={`mt-4 transition-all p-3 rounded text-lg font-semibold cursor-pointer ${
+                !isFormValid
+                  ? "bg-red-500/45 hover:bg-red-600/15 cursor-not-allowed"
+                  : " bg-red-600 hover:bg-red-700"
+              }`}
             >
               Sign In
             </button>

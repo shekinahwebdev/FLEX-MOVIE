@@ -1,9 +1,28 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import AuthFooter from "../ui/AuthFooter";
 import PasswordInput from "../ui/PasswordInput";
 import ConfirmPassword from "../ui/ConfirmPassword";
+import { useDispatch } from "react-redux";
+import { signUp } from "../components/auth/authSlice";
+import { useAuthForm } from "../hooks/useAuthForm";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { formData, error, touched, handleChange, handleBlur, isFormValid } =
+    useAuthForm(true);
+
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isFormValid) return;
+
+    const newUser = {
+      id: Date.now(),
+      ...formData,
+    };
+    dispatch(signUp(newUser));
+    navigate("/profile");
+  };
   return (
     <main className="bg-[url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
       <div className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20">
@@ -19,7 +38,7 @@ const SignUp = () => {
             Sign Up
           </h2>
 
-          <form className="flex flex-col gap-5">
+          <form className="flex flex-col gap-5" onSubmit={handleSignUp}>
             <div className="flex flex-col">
               <label htmlFor="email" className="mb-1 text-sm">
                 Email
@@ -27,10 +46,17 @@ const SignUp = () => {
               <input
                 type="email"
                 id="email"
+                name="email"
+                value={formData.email}
+                onBlur={handleBlur}
+                onChange={handleChange}
                 placeholder="Enter your email"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
+              {touched.email && error.email && (
+                <p className="text-red-500 text-sm mt-1">{error.email}</p>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="username" className="mb-1 text-sm">
@@ -39,16 +65,40 @@ const SignUp = () => {
               <input
                 type="text"
                 id="text"
+                name="username"
+                value={formData.username}
+                onBlur={handleBlur}
+                onChange={handleChange}
                 placeholder="Enter your username"
                 className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
                 required
               />
+              {touched.email && error.username && (
+                <p className="text-red-500 text-sm mt-1">{error.username}</p>
+              )}
             </div>
-            <PasswordInput />
-            <ConfirmPassword />
+            <PasswordInput
+              value={formData.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              touched={touched}
+              errorMsg={error}
+            />
+            <ConfirmPassword
+              value={formData.confirm ?? ""}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              touched={touched}
+              errorMsg={error}
+            />
             <button
               type="submit"
-              className="mt-4 bg-red-600 hover:bg-red-700 transition-all p-3 rounded text-lg font-semibold cursor-pointer"
+              disabled={!isFormValid}
+              className={`mt-4 transition-all p-3 rounded text-lg font-semibold cursor-pointer ${
+                !isFormValid
+                  ? "bg-red-500/45 hover:bg-red-600/15 cursor-not-allowed"
+                  : " bg-red-600 hover:bg-red-700"
+              }`}
             >
               Sign Up
             </button>
@@ -77,7 +127,7 @@ const SignUp = () => {
             <span className="text-[rgb(101,99,99)]">
               Have an account in Netflix?
               <Link
-                to="/"
+                to="/signin"
                 className="text-white ml-2 font-bold text-[18px] hover:text-red-500 transition-colors duration-300 cursor-pointer"
               >
                 Sign in now

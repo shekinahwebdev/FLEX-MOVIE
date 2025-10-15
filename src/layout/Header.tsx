@@ -1,8 +1,9 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { headerLinks } from "../lib/constant";
 import { FaCaretDown, FaSearch } from "react-icons/fa";
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className="flex flex-row text-white justify-between px-5 py-10 md:px-12 lg:px-20">
       <div className="flex flex-row justify-between gap-12 items-center">
@@ -27,7 +28,7 @@ const Header = () => {
         <FaSearch className="w-5 h-5 text-white/30" />
         <img src="/assets/Doorbell.png" alt="" className="" />
         <img src="/assets/image12.png" alt="" className="w-[40px] h-auto" />
-        <FaCaretDown />
+        <FaCaretDown onClick={() => navigate("/")} />
       </div>
     </header>
   );

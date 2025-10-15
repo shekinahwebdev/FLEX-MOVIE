@@ -15,6 +15,14 @@ body {
   }
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .signup-bg {
   background-color: rgb(0, 0, 0, 1);
 }

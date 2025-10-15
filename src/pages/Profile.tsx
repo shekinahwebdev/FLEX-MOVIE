@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { profileIcons } from "../lib/constant";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import type { RootState } from "../app/store";
 
 const Profile = () => {
   const [isEditted, setIsEditted] = useState(false);
   const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.auth);
+
+  const handleProfileClick = () => {
+    navigate("/account");
+  };
 
   return (
     <aside className="flex flex-col items-center bg-[rgb(18,18,18)] min-h-[100vh] relative">
@@ -30,7 +37,11 @@ const Profile = () => {
         </p>
         <div className="grid grid-cols-3 gap-5 xl:grid-cols-6 mt-5">
           {profileIcons.map((icons, index) => (
-            <div key={index} className="relative">
+            <div
+              key={index}
+              className="relative border-2"
+              onClick={handleProfileClick}
+            >
               <img src={icons.src} alt={icons.name} className="" />
               <img
                 src={icons.edit}
@@ -39,7 +50,7 @@ const Profile = () => {
                   isEditted ? "block" : "hidden"
                 }`}
               />
-              <p className="text-center">{icons.name}</p>
+              <p className="text-center">{user?.username}</p>
             </div>
           ))}
         </div>
