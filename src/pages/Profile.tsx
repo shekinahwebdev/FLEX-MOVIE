@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { profileIcons } from "../lib/constant";
+// import { profileIcons } from "../lib/constant";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import type { RootState } from "../app/store";
+import { profileIcons } from "../lib/constant";
 
 const Profile = () => {
   const [isEditted, setIsEditted] = useState(false);
   const navigate = useNavigate();
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { users } = useSelector((state: RootState) => state.auth);
 
-  const handleProfileClick = () => {
-    navigate("/account");
+  const handleProfileClick = (userId: number) => {
+    // localStorage.setItem("activeUserId", userId);
+    navigate(`/account/${userId}`);
   };
 
   return (
@@ -36,23 +38,27 @@ const Profile = () => {
           Who is watching?
         </p>
         <div className="grid grid-cols-3 gap-5 xl:grid-cols-6 mt-5">
-          {profileIcons.map((icons, index) => (
-            <div
-              key={index}
-              className="relative border-2"
-              onClick={handleProfileClick}
-            >
-              <img src={icons.src} alt={icons.name} className="" />
-              <img
-                src={icons.edit}
-                alt=""
-                className={`absolute w-[45%] top-[20%] left-[30%] z-50 cursor-pointer ${
-                  isEditted ? "block" : "hidden"
-                }`}
-              />
-              <p className="text-center">{user?.username}</p>
-            </div>
-          ))}
+          {profileIcons.map((icon, index) => {
+            const user = users[index]; // get the username for this slot
+            const username = user ? user.username : `User ${index + 1}`;
+            return (
+              <div
+                key={index}
+                className="relative"
+                onClick={() => handleProfileClick(user.id)}
+              >
+                <img src={icon.src} alt={username} className="" />
+                <img
+                  src={icon.edit}
+                  alt=""
+                  className={`absolute w-[45%] top-[20%] left-[30%] z-50 cursor-pointer ${
+                    isEditted ? "block" : "hidden"
+                  }`}
+                />
+                <p className="text-center">{username}</p>
+              </div>
+            );
+          })}
         </div>
         {isEditted ? (
           <button

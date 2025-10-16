@@ -5,6 +5,7 @@ interface FormData {
   password: string;
   username?: string;
   confirm?: string;
+  // image: number;
 }
 
 interface FormErrors {

@@ -9,7 +9,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { formData, error, touched, handleChange, handleBlur, isFormValid } =
-    useAuthForm(true);
+    useAuthForm(false);
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();

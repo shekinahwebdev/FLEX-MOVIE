@@ -1,9 +1,17 @@
+import { useParams } from "react-router";
 import Header from "../layout/Header";
 import MainMovie from "./MainMovie";
+import { useSelector } from "react-redux";
+import type { RootState } from "../app/store";
 
 const Account = () => {
+  const { id } = useParams<{ id: string }>();
+  const { users } = useSelector((state: RootState) => state.auth);
+
+  const user = users.find((u) => u.id === Number(id));
+
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col" key={user?.id}>
       <Header />
       <div className="w-full flex flex-col items-start px-5 pb-10 md:pb-20 md:px-12 lg:px-20">
         <div className="">

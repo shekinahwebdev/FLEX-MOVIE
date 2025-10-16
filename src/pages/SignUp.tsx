@@ -5,6 +5,7 @@ import ConfirmPassword from "../ui/ConfirmPassword";
 import { useDispatch } from "react-redux";
 import { signUp } from "../components/auth/authSlice";
 import { useAuthForm } from "../hooks/useAuthForm";
+import { profileIcons } from "../lib/constant";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const SignUp = () => {
     const newUser = {
       id: Date.now(),
       ...formData,
+      image: profileIcons[Math.floor(Math.random() * profileIcons.length)],
     };
     dispatch(signUp(newUser));
     navigate("/profile");
