@@ -12,12 +12,14 @@ interface AuthState {
   users: userDetails[];
   activeUser: userDetails | null;
   isAuthenticated: boolean;
+  errorMg: string | null;
 }
 
 const initialState: AuthState = {
   users: JSON.parse(localStorage.getItem("users") || "[]"),
   activeUser: JSON.parse(localStorage.getItem("activeUser") || "null"),
   isAuthenticated: !!localStorage.getItem("user"),
+  errorMg: null,
 };
 
 const authSlice = createSlice({
@@ -53,6 +55,28 @@ const authSlice = createSlice({
         alert("Email and password not found");
       }
     },
+    checkEmail: (state, action: { payload: string }) => {
+      const email = action.payload;
+      const userExists = state.users.find((user) => user.email === email);
+
+      if (!userExists) {
+        state.errorMg = "Email not found. Please sign up.";
+      } else {
+        state.activeUser = userExists;
+        state.isAuthenticated = true;
+        localStorage.setItem("activeUser", JSON.stringify(userExists));
+        state.errorMg = null;
+      }
+
+      // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // const newErrors: FormErrors = { email: "", password: "" };
+      // if (!email){
+      //   newErrors.email = "Email is required";
+      // }
+    },
+    clearError: (state) => {
+      state.errorMg = null;
+    },
     signOut: (state) => {
       state.activeUser = null;
       state.isAuthenticated = false;
@@ -61,5 +85,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { signUp, signIn, signOut } = authSlice.actions;
+export const { signUp, signIn, signOut, checkEmail, clearError } =
+  authSlice.actions;
 export default authSlice.reducer;

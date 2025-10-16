@@ -3,10 +3,30 @@ import AskQuestions from "../ui/AskQuestions";
 import HomeFooter from "../ui/HomeFooter";
 import { useEffect, useState } from "react";
 import { tvImages, watchedImages } from "../lib/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { checkEmail } from "../components/auth/authSlice";
+import { useAuthForm } from "../hooks/useAuthForm";
+import type { RootState } from "../app/store";
 
 const Home = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { errorMg } = useSelector((state: RootState) => state.auth);
+  const { formData, touched, error, handleChange, handleBlur } =
+    useAuthForm(false);
+
+  const getStarted = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    dispatch(checkEmail(formData.email));
+
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const userExists = users.find((user: any) => user.email === formData.email);
+    if (userExists) {
+      navigate("/profile");
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,11 +43,13 @@ const Home = () => {
       <header className="bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center text-white">
         <div className="self-start flex justify-between items-center w-full mb-10 px-5 py-10 md:px-12 lg:px-20">
           <div className="flex flex-row justify-between items-center w-full">
-            <img
-              src="/assets/logo.png"
-              alt="logo"
-              className="w-[120px] xl:w-[150px]"
-            />
+            <div onClick={() => navigate("/")}>
+              <img
+                src="/assets/logo.png"
+                alt="logo"
+                className="w-[120px] xl:w-[150px]"
+              />
+            </div>
             <button
               className="bg-red-600 px-4 py-2 md:px-6  hover:bg-red-700"
               onClick={() => navigate("/signup")}
@@ -49,30 +71,44 @@ const Home = () => {
             membership.
           </p>
         </div>
-
-        <div className="w-full flex flex-col items-center justify-center p-6 gap-3 md:flex-row">
-          <div className="flex flex-col w-full max-w-[1000px] md:max-w-[500px] relative">
+        <form
+          onSubmit={getStarted}
+          className="w-full flex flex-col md:flex-row items-center md:items-start justify-center gap-3 my-5"
+        >
+          <div className="flex flex-col w-full md:w-[500px] relative">
             <input
               type="email"
               id="email"
+              name="email"
+              value={formData.email}
+              onBlur={handleBlur}
+              onChange={handleChange}
               placeholder=" "
-              className="peer p-3 pt-4 rounded text-white bg-[#000000a8] border-2 border-white/35 w-full placeholder-transparent focus:border-white focus:outline-none "
+              className="peer p-3 pt-9 text-base rounded text-white bg-[#000000a8] border border-white/40 w-full placeholder-transparent focus:border-green-600 focus:outline-none"
               required
             />
             <label
               htmlFor="email"
-              className="absolute left-3 top-3 text-white transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-placeholder-shown:text-base  peer-focus:top-[3px] peer-focus:text-sm peer-focus:text-white bg-transparent peer-focus:mt-1"
+              className="absolute left-3 top-2 text-white transition-all duration-200 text-base
+              peer-placeholder-shown:top-6 peer-placeholder-shown:text-white/50 peer-placeholder-shown:text-base  
+              peer-focus:top-[3px] peer-focus:text-sm peer-focus:text-white bg-transparent peer-focus:mt-1"
             >
               Email address
             </label>
+            {touched.email && error.username && (
+              <p className="text-red-500 text-sm mt-1">{error.username}</p>
+            )}
+            {errorMg && <p className="text-red-500 text-sm mt-2">{errorMg}</p>}
           </div>
-          <button
-            className="bg-red-600 px-10 py-3 font-bold"
-            onClick={() => navigate("/profile")}
-          >
-            Get Started
-          </button>
-        </div>
+          <div className="flex items-start">
+            <button
+              className="bg-red-600 text-white px-8 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:pb-14 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition xl:text-2xl md:text-xl"
+              type="submit"
+            >
+              Get Started
+            </button>
+          </div>
+        </form>
       </header>
       <section className="flex flex-row items-center justify-center flex-wrap xl:flex-nowrap xl:justify-between px-20 py-16 text-center xl:text-left border-b-8 border-white/40">
         <div className="font-bold px-16">
@@ -188,7 +224,13 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <AskQuestions />
+      <AskQuestions
+        getStarted={getStarted}
+        value={formData.email}
+        onBlur={handleBlur}
+        onChange={handleChange}
+        error={errorMg}
+      />
       <HomeFooter />
     </main>
   );

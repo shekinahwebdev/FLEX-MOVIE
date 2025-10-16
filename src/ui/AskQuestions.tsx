@@ -1,4 +1,18 @@
-const AskQuestions = () => {
+interface AskQuestionsProps {
+  getStarted: (e: React.FormEvent) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  value: string;
+  error: string | null;
+}
+
+const AskQuestions = ({
+  onChange,
+  onBlur,
+  value,
+  getStarted,
+  error,
+}: AskQuestionsProps) => {
   const questions = [
     {
       question: "What is Netflix?",
@@ -48,24 +62,38 @@ const AskQuestions = () => {
       <p className="mt-10 text-xl md:text-2xl">
         Ready to watch? Enter your email to create or restart your membership.
       </p>
-      <div className="w-full flex flex-col items-center justify-center p-6 gap-3 md:flex-row">
+      <form
+        onSubmit={getStarted}
+        className="w-full flex flex-col items-center justify-center p-6 gap-3 md:flex-row  md:items-start"
+      >
         <div className="flex flex-col w-full max-w-[1000px] md:max-w-[500px] relative">
           <input
             type="email"
             id="email"
+            name="email"
+            value={value}
+            onBlur={onBlur}
+            onChange={onChange}
             placeholder=" "
-            className="peer p-3 pt-4 rounded text-white bg-[#000000a8] border-2 border-white/35 w-full placeholder-transparent focus:border-white focus:outline-none "
-            required
+            className="peer p-3 pt-9 text-base rounded text-white bg-[#000000a8] border border-white/40 w-full placeholder-transparent focus:border-green-600 focus:outline-none"
           />
           <label
             htmlFor="email"
-            className="absolute left-3 top-3 text-white transition-all duration-200 peer-placeholder-shown:top-4 peer-placeholder-shown:text-white/50 peer-placeholder-shown:text-base  peer-focus:top-[3px] peer-focus:text-sm peer-focus:text-white bg-transparent peer-focus:mt-1"
+            className="absolute left-3 top-2 text-white transition-all duration-200 text-base
+              peer-placeholder-shown:top-6 peer-placeholder-shown:text-white/50 peer-placeholder-shown:text-base  
+              peer-focus:top-[3px] peer-focus:text-sm peer-focus:text-white bg-transparent peer-focus:mt-1"
           >
             Email address
           </label>
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
         </div>
-        <button className="bg-red-600 px-10 py-3 font-bold">Get Started</button>
-      </div>
+        <button
+          type="submit"
+          className="bg-red-600 text-white px-8 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:pb-14 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition xl:text-2xl md:text-xl"
+        >
+          Get Started
+        </button>
+      </form>
     </section>
   );
 };
