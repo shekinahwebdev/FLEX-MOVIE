@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Account from "./pages/Account";
+import PlayMovie from "./ui/PlayMovie";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "/signin", element: <SignIn /> },
       { path: "/profile", element: <Profile /> },
       { path: "/account/:id", element: <Account /> },
+      { path: "/play", element: <PlayMovie /> },
     ],
   },
 ]);

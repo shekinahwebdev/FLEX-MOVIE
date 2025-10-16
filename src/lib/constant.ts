@@ -423,36 +423,36 @@ export const trailers = [
     src: "/assets/logo/jawan.png",
     description:
       "Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment ",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/5PSNL1qE6VY?si=B5Pg2kP_8j3u-lOm",
   },
   {
     src: "/assets/logo/jurassic.png",
     description:
       "A theme park showcasing genetically-engineered dinosaurs turns into a nightmare for its tourists when one of the dinosaurs escapes its enclosure. An ex-military animal expert steps up to save the day.",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/RFinNxS5KN4?si=aJK1tozY0ZuLqIeM",
   },
   {
     src: "/assets/logo/mega.png",
     description:
       "Jonas Taylor leads a research team on an exploratory dive into the deepest depths of the ocean. Their voyage spirals into chaos when a malevolent mining operation threatens their mission",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/dG91B3hHyY4?si=KOTFppeZeuKsKjA9",
   },
   {
     src: "/assets/logo/avatar.png",
     description:
       "Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/5PSNL1qE6VY?si=B5Pg2kP_8j3u-lOm",
   },
   {
     src: "/assets/logo/adipuraush.png",
     description:
       "Raghav, the prince of the Ikshvaku dynasty from Kosala, tries to rescue his wife, Janaki, from the demon king Lankesh.",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/scNmYjoR-qM?si=TWPRJdmzeHyQ5I6L",
   },
   {
     src: "/assets/logo/Virupaksha.png",
     description:
       "Virupaksha is a 2023 Indian Telugu-language horror thriller film directed by Karthik Varma Dandu who co-wrote the film with Sukumar.",
-    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+    videoUrl: "https://youtu.be/BC9s_Zof_Xk?si=LmMoYKjvG9U6ylpU",
   },
 ];
