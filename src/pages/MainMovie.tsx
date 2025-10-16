@@ -1,7 +1,7 @@
 import { southIndian } from "../lib/constant";
 const MainMovie = () => {
   return (
-    <aside className="flex flex-col px-5 gap-3">
+    <aside className="flex flex-col px-5 gap-3 mt-10">
       <div className="w-full">
         <p className="font-bold mb-5">South Indian Cinemas</p>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth">

@@ -25,7 +25,7 @@ const Profile = () => {
       ></div>
       <div
         className="self-start flex  w-full mb-10 px-5 py-10 md:px-12 lg:px-20 z-30 relative"
-        onClick={() => navigate("/account")}
+        onClick={() => navigate(`/account/:id`)}
       >
         <img
           src="/assets/logo.png"

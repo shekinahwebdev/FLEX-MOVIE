@@ -411,3 +411,48 @@ export const englishMovies = [
   "/assets/cards/card10.jpg",
   "/assets/cards/card10.jpg",
 ];
+
+export const trailers = [
+  {
+    src: "/assets/Bheem For Ramaraju - Ramaraju Intro - RRR(Telugu) _ NTR, Ram Charan, Ajay Devgn _ SS Rajamouli (1) 1.png",
+    description:
+      "RRR is a fictional story about two Indian revolutionaries who fought against British colonialists in the 1920s. The film is set in the 1920s and spoken in the Telugu language.",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/jawan.png",
+    description:
+      "Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment ",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/jurassic.png",
+    description:
+      "A theme park showcasing genetically-engineered dinosaurs turns into a nightmare for its tourists when one of the dinosaurs escapes its enclosure. An ex-military animal expert steps up to save the day.",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/mega.png",
+    description:
+      "Jonas Taylor leads a research team on an exploratory dive into the deepest depths of the ocean. Their voyage spirals into chaos when a malevolent mining operation threatens their mission",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/avatar.png",
+    description:
+      "Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/adipuraush.png",
+    description:
+      "Raghav, the prince of the Ikshvaku dynasty from Kosala, tries to rescue his wife, Janaki, from the demon king Lankesh.",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+  {
+    src: "/assets/logo/Virupaksha.png",
+    description:
+      "Virupaksha is a 2023 Indian Telugu-language horror thriller film directed by Karthik Varma Dandu who co-wrote the film with Sukumar.",
+    videoUrl: "https://www.youtube.com/watch?v=GY4BgdUSpbE",
+  },
+];

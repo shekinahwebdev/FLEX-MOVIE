@@ -26,12 +26,15 @@ const SignUp = () => {
     navigate("/profile");
   };
   return (
-    <main className="bg-[url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
-      <div className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20">
+    <main className="bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
+      <div
+        className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20"
+        onClick={() => navigate("/")}
+      >
         <img
           src="/assets/logo.png"
           alt="logo"
-          className="w-[150px] md:w-[250px]"
+          className="w-[120px] xl:w-[150px]"
         />
       </div>
       <div className="px-5 md:px-12 lg:px-20">

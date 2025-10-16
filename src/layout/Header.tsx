@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="flex flex-row text-white justify-between px-5 py-10 md:px-12 lg:px-20">
       <div className="flex flex-row justify-between gap-12 items-center">
-        <div className="">
+        <div className="" onClick={() => navigate("/signin")}>
           <img
             src="/assets/logo.png"
             alt="logo"
@@ -28,7 +28,7 @@ const Header = () => {
         <FaSearch className="w-5 h-5 text-white/30" />
         <img src="/assets/Doorbell.png" alt="" className="" />
         <img src="/assets/image12.png" alt="" className="w-[40px] h-auto" />
-        <FaCaretDown onClick={() => navigate("/")} />
+        <FaCaretDown onClick={() => navigate("/profile")} />
       </div>
     </header>
   );
