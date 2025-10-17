@@ -111,7 +111,7 @@ const Home = () => {
         </form>
       </header>
       <section className="flex flex-row items-center justify-center flex-wrap xl:flex-nowrap xl:justify-between px-20 py-16 text-center xl:text-left border-b-8 border-white/40">
-        <div className="font-bold px-16">
+        <div className="font-bold px-0 md:px-16">
           <p className="text-2xl md:text-3xl">Enjoy on your TV</p>
           <p className="mt-3">
             Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray

@@ -6,6 +6,7 @@ import type { RootState } from "../app/store";
 import ReactPlayer from "react-player";
 import { useState } from "react";
 import { trailers } from "../lib/constant";
+import PlayMovie from "../ui/PlayMovie";
 
 const Account = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,6 +15,8 @@ const Account = () => {
 
   const [current, setCurrent] = useState(0);
   const trailer = trailers[current];
+
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const prevMovie = () => {
     setCurrent((prev) => (prev === 0 ? trailers.length - 1 : prev - 1));
@@ -25,8 +28,13 @@ const Account = () => {
   return (
     <section className="flex flex-col relative" key={user?.id}>
       <Header />
-
-      <div className="w-full flex flex-col items-start px-5 pb-10 md:pb-20 md:px-12 lg:px-20 relative">
+      <div
+        className={`absolute inset-0 transition-all duration-300 ${
+          showOverlay ? " bg-[rgb(0,0,0,0.6)] z-20" : "hidden"
+        }`}
+        onClick={() => setShowOverlay(false)}
+      ></div>
+      <div className="w-full flex flex-col items-start px-5 pb-10 md:pb-20 md:px-12 lg:px-20 relative z-0">
         <ReactPlayer
           src={trailer.videoUrl}
           playing
@@ -48,7 +56,10 @@ const Account = () => {
             <p>#1 in Movie Today</p>
           </div>
           <div className="flex flex-row gap-5">
-            <button className="bg-white flex items-center px-7 text-black gap-3 py-3">
+            <button
+              className="bg-white flex items-center px-7 text-black gap-3 py-3"
+              onClick={() => setShowOverlay((prev) => !prev)}
+            >
               <img src="/assets/play.png" alt="" className="w-5 h-5" />
               Play
             </button>
@@ -87,6 +98,7 @@ const Account = () => {
         </button>
       </div>
       <MainMovie />
+      {showOverlay && <PlayMovie />}
     </section>
   );
 };

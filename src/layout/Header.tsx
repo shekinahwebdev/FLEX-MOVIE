@@ -5,7 +5,7 @@ import { FaCaretDown, FaSearch } from "react-icons/fa";
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <header className="flex flex-row text-white justify-between px-5 py-10 md:px-12 lg:px-20">
+    <header className="flex flex-row text-white justify-between px-5 py-10 md:px-12 lg:px-20 z-0">
       <div className="flex flex-row justify-between gap-12 items-center">
         <div className="" onClick={() => navigate("/signin")}>
           <img
