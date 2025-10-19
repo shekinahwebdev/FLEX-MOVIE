@@ -1,12 +1,14 @@
 import { useParams } from "react-router";
 import Header from "../layout/Header";
 import MainMovie from "./MainMovie";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../app/store";
 import ReactPlayer from "react-player";
 import { useState } from "react";
 import { trailers } from "../lib/constant";
 import PlayMovie from "../ui/PlayMovie";
+import { setActiveMovieByName } from "../components/movies/movieSlice";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Account = () => {
   const { id } = useParams<{ id: string }>();
@@ -23,6 +25,13 @@ const Account = () => {
   };
   const nextMovie = () => {
     setCurrent((prev) => (prev + 1) % trailers.length);
+  };
+  const dispatch = useDispatch();
+
+  const handleMovieByName = () => {
+    setShowOverlay((prev) => !prev);
+
+    dispatch(setActiveMovieByName(trailer.name));
   };
 
   return (
@@ -58,7 +67,7 @@ const Account = () => {
           <div className="flex flex-row gap-5">
             <button
               className="bg-white flex items-center px-7 text-black gap-3 py-3"
-              onClick={() => setShowOverlay((prev) => !prev)}
+              onClick={handleMovieByName}
             >
               <img src="/assets/play.png" alt="" className="w-5 h-5" />
               Play
@@ -81,20 +90,12 @@ const Account = () => {
       </div>
       <div>
         <button onClick={nextMovie}>
-          <img
-            src="/assets/Reset.png"
-            alt=""
-            className="border-2 absolute rounded-full w-10 h-10 md:w-12 md:h-12 top-72 right-5"
-          />
+          <FaArrowRight className="absolute w-10 h-10 md:w-12 md:h-12 top-72 right-5" />
         </button>
       </div>
       <div>
         <button onClick={prevMovie}>
-          <img
-            src="/assets/Reset.png"
-            alt=""
-            className="border-2 absolute rounded-full w-10 h-10 md:w-12 md:h-12 top-72 left-5"
-          />
+          <FaArrowLeft className="absolute  w-10 h-10 md:w-12 md:h-12 top-72 left-5" />
         </button>
       </div>
       <MainMovie />
