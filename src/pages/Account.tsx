@@ -48,7 +48,7 @@ const Account = () => {
           src={trailer.videoUrl}
           playing
           loop
-          muted={false}
+          muted={true}
           width="100%"
           height="100%"
           className="absolute inset-0 object-cover"

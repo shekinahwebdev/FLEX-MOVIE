@@ -1,4 +1,4 @@
-import { southIndian } from "../lib/constant";
+import { southIndian, trendingNow, uSTVShow } from "../lib/constant";
 const MainMovie = () => {
   return (
     <aside className="flex flex-col px-5 gap-3 mt-10">
@@ -20,9 +20,9 @@ const MainMovie = () => {
         </div>
       </div>
       <div className="w-full">
-        <p className="font-bold mb-5">South Indian Cinemas</p>
+        <p className="font-bold mb-5">Trending Now</p>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth">
-          {southIndian.map((movie, index) => (
+          {trendingNow.map((movie, index) => (
             <div
               key={index}
               className="flex-shrink-0 w-[200px] h-[120px] md:w-[250px] md:h-[150px] overflow-hidden"
@@ -37,9 +37,9 @@ const MainMovie = () => {
         </div>
       </div>
       <div className="w-full">
-        <p className="font-bold mb-5">South Indian Cinemas</p>
+        <p className="font-bold mb-5">US TV Show</p>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth">
-          {southIndian.map((movie, index) => (
+          {uSTVShow.map((movie, index) => (
             <div
               key={index}
               className="flex-shrink-0 w-[200px] h-[120px] md:w-[250px] md:h-[150px] overflow-hidden"
@@ -54,7 +54,7 @@ const MainMovie = () => {
         </div>
       </div>
       <div className="w-full">
-        <p className="font-bold mb-5">South Indian Cinemas</p>
+        <p className="font-bold mb-5">Adventure Movie</p>
         <div className="flex gap-3 overflow-x-auto scrollbar-hide scroll-smooth">
           {southIndian.map((movie, index) => (
             <div
