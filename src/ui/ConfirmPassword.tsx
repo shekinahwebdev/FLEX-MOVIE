@@ -38,7 +38,7 @@ const ConfirmPassword = ({
         onBlur={onBlur}
         onChange={onChange}
         id="password"
-        className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
+        className="p-2 rounded bg-[rgb(217,217,217)] text-black outline-none  placeholder:text-sm"
         required
       />
       {touched.confirm && errorMsg.confirm && (
@@ -47,12 +47,12 @@ const ConfirmPassword = ({
       <button
         type="button"
         onClick={() => setShowPassword(!showPassword)}
-        className="absolute right-1 top-[27px] flex items-center justify-center w-10 h-10 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
+        className="absolute right-1 top-[27px] flex items-center justify-center w-8 h-8 rounded bg-[rgb(106,104,104)] hover:bg-[rgb(90,90,90)] transition cursor-pointer"
       >
         <img
           src={showPassword ? "/assets/close.png" : "/assets/open.png"}
           alt="toggle password visibility"
-          className="w-6 h-6"
+          className="w-5 h-5"
         />
       </button>
     </div>

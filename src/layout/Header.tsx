@@ -11,11 +11,11 @@ const Header = () => {
           <img
             src="/assets/logo.png"
             alt="logo"
-            className="w-[120px] xl:w-[150px]"
+            className="w-[100px] xl:w-[120px]  hover:cursor-pointer"
           />
         </div>
         <div className="flex flex-col">
-          <ul className="xl:flex xl:flex-row justify-between hidden w-full gap-6">
+          <ul className="xl:flex xl:flex-row justify-between md:text-sm hidden w-full gap-6">
             {headerLinks.map((link, index) => (
               <li key={index}>
                 <Link to="">{link.name}</Link>
@@ -25,9 +25,9 @@ const Header = () => {
         </div>
       </div>
       <div className="flex flex-row gap-4 items-center">
-        <FaSearch className="w-5 h-5 text-white/30" />
-        <img src="/assets/Doorbell.png" alt="" className="" />
-        <img src="/assets/image12.png" alt="" className="w-[40px] h-auto" />
+        <FaSearch className="w-4 h-4 text-white/30" />
+        <img src="/assets/Doorbell.png" alt="" className="w-[20px]" />
+        <img src="/assets/image12.png" alt="" className="w-[30px] h-auto" />
         <FaCaretDown onClick={() => navigate("/profile")} />
       </div>
     </header>

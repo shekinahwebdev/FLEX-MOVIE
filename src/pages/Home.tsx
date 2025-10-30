@@ -47,7 +47,7 @@ const Home = () => {
               <img
                 src="/assets/logo.png"
                 alt="logo"
-                className="w-[120px] xl:w-[150px]"
+                className="w-[120px] xl:w-[150px]  hover:cursor-pointer"
               />
             </div>
             <button
@@ -60,7 +60,7 @@ const Home = () => {
         </div>
 
         <div className="text-center px-9 flex flex-col gap-3 xl:px-10 justify-center items-center mt-40 w-full max-w-[1000px]">
-          <p className="xl:text-7xl font-extrabold text-4xl">
+          <p className="xl:text-4xl font-extrabold text-3xl">
             Unlimited movies, TV shows, and more
           </p>
           <p className="xl:text-2xl text-xl font-bold">
@@ -102,7 +102,7 @@ const Home = () => {
           </div>
           <div className="flex items-start">
             <button
-              className="bg-red-600 text-white px-8 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:pb-14 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition xl:text-2xl md:text-xl"
+              className="bg-red-600 text-white px-6 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:py-12 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition text-xl"
               type="submit"
             >
               Get Started

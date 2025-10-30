@@ -30,16 +30,16 @@ const Profile = () => {
         <img
           src="/assets/logo.png"
           alt="logo"
-          className="w-[120px] xl:w-[150px] drop-shadow-2xl"
+          className="w-[120px] xl:w-[150px] drop-shadow-2xl hover:cursor-pointer"
         />
       </div>
-      <div className="flex flex-col items-center justify-center px-8 mt-40 relative z-30">
-        <p className="text-xl md:text-3xl xl:text-5xl text-center font-bold drop-shadow-2xl">
+      <div className="flex flex-col items-center justify-center px-8 relative z-30">
+        <p className="text-xl md:text-2xl xl:text-3xl text-center font-bold drop-shadow-2xl">
           Who is watching?
         </p>
-        <div className="grid grid-cols-3 gap-5 xl:grid-cols-6 mt-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 xl:grid-cols-6 mt-5">
           {profileIcons.map((icon, index) => {
-            const user = users[index]; // get the username for this slot
+            const user = users[index];
             const username = user ? user.username : `User ${index + 1}`;
             return (
               <div
@@ -47,11 +47,15 @@ const Profile = () => {
                 className="relative"
                 onClick={() => handleProfileClick(user.id)}
               >
-                <img src={icon.src} alt={username} className="" />
+                <img
+                  src={icon.src}
+                  alt={username}
+                  className="w-full max-w-[200px  hover:cursor-pointer"
+                />
                 <img
                   src={icon.edit}
                   alt=""
-                  className={`absolute w-[45%] top-[20%] left-[30%] z-50 cursor-pointer ${
+                  className={`absolute w-[25%] top-[40%] left-[35%] z-50 cursor-pointer ${
                     isEditted ? "block" : "hidden"
                   }`}
                 />
@@ -62,14 +66,14 @@ const Profile = () => {
         </div>
         {isEditted ? (
           <button
-            className="bg-white text-black px-8 py-2 xl:text-2xl mt-3 xl:mt-7"
+            className="bg-white text-black px-8 py-2 xl:text-xl mt-3 xl:mt-7"
             onClick={() => setIsEditted((prev) => !prev)}
           >
             Done
           </button>
         ) : (
           <button
-            className="border-1 border-white/25 px-8 py-2 xl:text-2xl mt-3 xl:mt-7 hover:bg-white/10"
+            className="border-1 border-white/25 px-8 py-2 xl:text-xl mt-3 xl:mt-7 hover:bg-white/10"
             onClick={() => setIsEditted((prev) => !prev)}
           >
             Manage Profiles

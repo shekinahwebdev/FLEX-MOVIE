@@ -36,7 +36,7 @@ const AskQuestions = ({
 
   return (
     <section className="flex flex-col items-center justify-center  px-14 py-16 border-b-8 border-white/40 gap-5">
-      <h1 className="text-2xl md:text-4xl font-extrabold">
+      <h1 className="text-2xl md:text-3xl font-extrabold">
         Frequently Asked Questions
       </h1>
       <div className="flex flex-col gap-3 w-full items-center mt-6 justify-center">
@@ -53,7 +53,7 @@ const AskQuestions = ({
               <img
                 src="/assets/group3.png"
                 alt="add icon"
-                className="w-6 h-6 md:w-7 md:h-7"
+                className="w-5 h-5 md:w-6 md:h-6"
               />
             </div>
           </div>
@@ -89,7 +89,7 @@ const AskQuestions = ({
         </div>
         <button
           type="submit"
-          className="bg-red-600 text-white px-8 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:pb-14 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition xl:text-2xl md:text-xl"
+          className="bg-red-600 text-white px-6 py-3 md:pt-6 md:pb-14 xl:pt-6 xl:py-12 text-center font-bold rounded md:ml-2 md:h-[52px] hover:bg-red-700 transition text-xl"
         >
           Get Started
         </button>

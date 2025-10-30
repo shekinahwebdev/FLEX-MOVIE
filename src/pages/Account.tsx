@@ -56,7 +56,7 @@ const Account = () => {
         />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))] bg-cover bg-center"></div>
         <div className="w-full flex flex-col items-start z-99 relative">
-          <img src={trailer.src} alt="" className="p-5" />
+          <img src={trailer.src} alt="" className="p-5 max-w-[500px]" />
           <p className="w-full max-w-[700px] xl:max-w-[500px] py-4">
             {trailer.description}
           </p>
@@ -81,21 +81,21 @@ const Account = () => {
             <img
               src="/assets/Reset.png"
               alt=""
-              className="border-2 rounded-full w-14 h-14 md:w-20 md:h-20"
+              className="border-2 rounded-full w-14 h-14 md:w-18 md:h-18"
             />
-            <div className="bg-white w-5 h-12 md:h-20"></div>
+            <div className="bg-white w-5 h-12 md:h-18"></div>
             <p>U/A 13+</p>
           </div>
         </div>
       </div>
       <div>
         <button onClick={nextMovie}>
-          <FaArrowRight className="absolute w-10 h-10 md:w-12 md:h-12 top-72 right-5" />
+          <FaArrowRight className="absolute w-10 h-10 md:w-10 md:h-10 top-72 right-5" />
         </button>
       </div>
       <div>
         <button onClick={prevMovie}>
-          <FaArrowLeft className="absolute  w-10 h-10 md:w-12 md:h-12 top-72 left-5" />
+          <FaArrowLeft className="absolute  w-10 h-10 md:w-10 md:h-10 top-72 left-5" />
         </button>
       </div>
       <MainMovie />

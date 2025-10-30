@@ -25,24 +25,24 @@ const SignIn = () => {
   return (
     <main className="bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('/assets/background_banner.jpg')] bg-cover bg-center min-h-screen flex flex-col items-center signup-bg">
       <div
-        className="self-start mb-10 px-5 py-10 md:px-12 lg:px-20"
+        className="self-start mb-10 px-5 py-5 md:px-12 lg:px-20"
         onClick={() => navigate("/")}
       >
         <img
           src="/assets/logo.png"
           alt="logo"
-          className="w-[120px] xl:w-[150px]"
+          className="w-[100px] xl:w-[120px]"
         />
       </div>
-      <div className="px-5 py-10 md:px-12 lg:px-20">
-        <div className="bg-white/20 backdrop-blur-sm p-7 sm:p-8 md:p-10 xl:p-16 rounded-md w-full max-w-[420px] md:max-w-[450px] lg:max-w-[500px] text-white  form-bg">
-          <h2 className="text-2xl md:text-3xl xl:text-4xl font-bold mb-6 text-center">
+      <div>
+        <div className="bg-white/20 backdrop-blur-sm p-5 sm:p-8 rounded-md w-full max-w-[350px] md:max-w-[400px] lg:max-w-[400px] text-white  form-bg">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">
             Sign In
           </h2>
 
           <form className="flex flex-col gap-5" onSubmit={handleSignIn}>
             <div className="flex flex-col">
-              <label htmlFor="email" className="mb-1 text-sm">
+              <label htmlFor="email" className="mb-1 md:text-xs">
                 Email
               </label>
               <input
@@ -53,11 +53,11 @@ const SignIn = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="p-3 rounded bg-[rgb(217,217,217)] text-black outline-none"
+                className="p-2 rounded bg-[rgb(217,217,217)] text-black outline-none placeholder:text-sm"
                 required
               />
               {touched.email && error.email && (
-                <p className="text-red-500 text-sm mt-1">{error.email}</p>
+                <p className="text-red-500 text-xs mt-1">{error.email}</p>
               )}
             </div>
             <PasswordInput
@@ -70,7 +70,7 @@ const SignIn = () => {
             <button
               type="submit"
               disabled={!isFormValid}
-              className={`mt-4 transition-all p-3 rounded text-lg font-semibold cursor-pointer ${
+              className={`mt-4 transition-all p-3 rounded md:text-sm  text-lg font-semibold cursor-pointer ${
                 !isFormValid
                   ? "bg-red-500/45 hover:bg-red-600/15 cursor-not-allowed"
                   : " bg-red-600 hover:bg-red-700"
@@ -80,36 +80,36 @@ const SignIn = () => {
             </button>
           </form>
 
-          <div className=" flex justify-between items-center my-8 px-4">
+          <div className=" flex justify-between items-center my-5 px-4">
             <div className="flex gap-3 items-center">
               <label className="flex items-center space-x-2 cursor-pointer">
                 <input
                   type="checkbox"
-                  className="appearance-none w-5 h-5 border-2 border-gray-400 rounded-sm checked:bg-[rgb(106,104,104)] checked:border-2 checked:border-[rgb(106,104,104)] cursor-pointer transition-all duration-200"
+                  className="appearance-none w-4 h-4 border-2 border-gray-400 rounded-sm checked:bg-[rgb(106,104,104)] checked:border-2 checked:border-[rgb(106,104,104)] cursor-pointer transition-all duration-200"
                 />
               </label>
               <Link to="">
-                <p className="text-[rgb(101,99,99)] hover:underline">
+                <p className="text-[rgb(101,99,99)] hover:underline md:text-sm">
                   Remember me
                 </p>
               </Link>
             </div>
-            <p className="text-[rgb(101,99,99)] hover:underline cursor-pointer">
+            <p className="text-[rgb(101,99,99)] hover:underline cursor-pointer md:text-sm">
               Need help?
             </p>
           </div>
 
           <div className="px-4 mt-12">
-            <span className="text-[rgb(101,99,99)]">
+            <span className="text-[rgb(101,99,99)] md:text-sm">
               New to Netflix?
               <Link
                 to="/signup"
-                className="text-white ml-2 font-bold text-[18px] hover:text-red-500 transition-colors duration-300 cursor-pointer"
+                className="text-white ml-2 md:text-sm font-bold text-[18px] hover:text-red-500 transition-colors duration-300 cursor-pointer"
               >
                 Sign up now
               </Link>
             </span>
-            <p className="text-[rgb(101,99,99)] mt-9">
+            <p className="text-[rgb(101,99,99)] mt-6 md:text-sm">
               This page is protected by Google reCAPTCHA to ensure you're not a
               bot.
               <span className="text-blue-700 cursor-pointer hover:underline">
