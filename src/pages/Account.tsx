@@ -9,6 +9,7 @@ import { trailers } from "../lib/constant";
 import PlayMovie from "../ui/PlayMovie";
 import { setActiveMovieByName } from "../components/movies/movieSlice";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Footer from "../layout/Footer";
 
 const Account = () => {
   const { id } = useParams<{ id: string }>();
@@ -56,7 +57,7 @@ const Account = () => {
         />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6))] bg-cover bg-center"></div>
         <div className="w-full flex flex-col items-start z-99 relative">
-          <img src={trailer.src} alt="" className="p-5 max-w-[500px]" />
+          <img src={trailer.src} alt="" className="p-5 md:max-w-[500px]" />
           <p className="w-full max-w-[700px] xl:max-w-[500px] py-4">
             {trailer.description}
           </p>
@@ -100,6 +101,7 @@ const Account = () => {
       </div>
       <MainMovie />
       {showOverlay && <PlayMovie />}
+      <Footer />
     </section>
   );
 };

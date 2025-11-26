@@ -24,6 +24,10 @@ export const rightLinks = [
   { link4: "Terms of Use", to: "/" },
   { link4: "Contact Us", to: "/" },
 ];
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/shekinahwebdev",
+  whatsapp: "https://chat.whatsapp.com/HvS0OfwO9qGEpfqHeUXz1T?mode=wwc",
+} as const;
 
 export const tvImages = [
   "/assets/landing-page.png",

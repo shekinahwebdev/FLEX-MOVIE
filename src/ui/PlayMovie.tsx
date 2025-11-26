@@ -14,7 +14,7 @@ const PlayMovie = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-col max-w-[800px] absolute z-50 xl:top-2 md:right-[30%] rounded-xl">
+    <div className="flex flex-col max-w-[800px] top-3 absolute z-50 xl:top-2 md:right-[30%] rounded-xl border-2">
       {activeMovie ? (
         <div
           key={activeMovie.id}
@@ -55,7 +55,11 @@ const PlayMovie = () => {
             <div className="flex flex-row justify-between mt-3 items-start pb-4">
               <div className="flex gap-3">
                 <button className="bg-white flex items-center px-7 text-black gap-3">
-                  <img src="/assets/play.png" alt="" className="w-5 h-5" />
+                  <img
+                    src="/assets/play.png"
+                    alt="play button"
+                    className="w-5 h-5"
+                  />
                   Play
                 </button>
                 <button className="border-2 rounded-full py-3 px-2">
@@ -110,7 +114,7 @@ const PlayMovie = () => {
           </div>
         </div>
       ) : (
-        <div>Select</div>
+        <div></div>
       )}
     </div>
   );
